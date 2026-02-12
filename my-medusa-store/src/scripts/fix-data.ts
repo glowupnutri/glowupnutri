@@ -1,6 +1,6 @@
 import { ExecArgs } from "@medusajs/framework/types";
 import { ContainerRegistrationKeys, Modules } from "@medusajs/framework/utils";
-import { createPricesWorkflow, createInventoryItemsWorkflow, createStockLocationsWorkflow, linkSalesChannelsToStockLocationWorkflow } from "@medusajs/medusa/core-flows";
+import { createInventoryItemsWorkflow, linkSalesChannelsToStockLocationWorkflow } from "@medusajs/medusa/core-flows";
 
 export default async function fixData({ container }: ExecArgs) {
     const logger = container.resolve(ContainerRegistrationKeys.LOGGER);
@@ -8,7 +8,7 @@ export default async function fixData({ container }: ExecArgs) {
     const link = container.resolve(ContainerRegistrationKeys.LINK);
     const pricingModule = container.resolve(Modules.PRICING);
 
-    logger.info("🔧 Starting Fix Data Script...");
+    logger.info("🔧 Starting Cloud Data Fix Script...");
 
     // 1. Find Product & Variant
     const { data: products } = await query.graph({
@@ -43,7 +43,6 @@ export default async function fixData({ container }: ExecArgs) {
         logger.info("⚠️ No Price Set found. Creating one...");
         // Create a price set using the Pricing Module directly
         const priceSet = await pricingModule.createPriceSets({
-            rules: [],
             prices: [
                 {
                     amount: 129,
@@ -66,14 +65,17 @@ export default async function fixData({ container }: ExecArgs) {
         logger.info("✅ Price Set linked to Variant.");
     } else {
         logger.info(`✅ Found existing Price Set ID: ${priceSetId}. Updating Price...`);
-        // Add or update price in existing price set
-        await pricingModule.addPrices(priceSetId, [
-            {
-                amount: 129,
-                currency_code: "pln",
-            }
-        ]);
-        logger.info("✅ Price 129 PLN added/updated.");
+        // addPriceSetsPrices or addPrices ? In recent versions it is addPrices with object
+        await pricingModule.upsertPriceSets([{
+            id: priceSetId,
+            prices: [
+                {
+                    amount: 129,
+                    currency_code: "pln",
+                }
+            ]
+        }]);
+        logger.info("✅ Price 129 PLN updated.");
     }
 
 
@@ -119,7 +121,8 @@ export default async function fixData({ container }: ExecArgs) {
     // 4. Add Stock Level
     // We need a Location. Get default location.
     const stockLocationModule = container.resolve(Modules.STOCK_LOCATION);
-    const [location] = await stockLocationModule.listStockLocations();
+    const locations = await stockLocationModule.listStockLocations({});
+    const location = locations[0];
 
     if (!location) {
         logger.error("❌ No Stock Location found!");
@@ -152,8 +155,6 @@ export default async function fixData({ container }: ExecArgs) {
     const [sc] = await salesChannelModule.listSalesChannels({ name: "Default Sales Channel" });
 
     if (sc) {
-        // Check if cleaning up existing links is needed, or just link efficiently
-        // Just run the workflow, it manages links
         await linkSalesChannelsToStockLocationWorkflow(container).run({
             input: {
                 id: location.id,
