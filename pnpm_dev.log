@@ -1,0 +1,39 @@
+
+> @ dev /Users/wskopek/Documents/Github projekty/GlowUp-Nutrition-shop
+> concurrently "pnpm --filter my-medusa-store dev" "pnpm --filter my-medusa-store-storefront dev"
+
+[1] my-medusa-store-storefront               |  WARN  The field "resolutions" was found in /Users/wskopek/Documents/Github projekty/GlowUp-Nutrition-shop/my-medusa-store-storefront/package.json. This will not take effect. You should configure "resolutions" at the root of the workspace instead.
+[0] my-medusa-store-storefront               |  WARN  The field "resolutions" was found in /Users/wskopek/Documents/Github projekty/GlowUp-Nutrition-shop/my-medusa-store-storefront/package.json. This will not take effect. You should configure "resolutions" at the root of the workspace instead.
+[1] No projects matched the filters in "/Users/wskopek/Documents/Github projekty/GlowUp-Nutrition-shop"
+[0] 
+[0] > my-medusa-store@0.0.1 dev /Users/wskopek/Documents/Github projekty/GlowUp-Nutrition-shop/my-medusa-store
+[0] > medusa develop
+[0] 
+[1] pnpm --filter my-medusa-store-storefront dev exited with code 0
+[0] [32minfo[39m:    redisUrl not found. A fake redis instance will be used.
+[0] [32minfo[39m:    [Watcher] Using standard dev server (restart on file change)
+[0] [32minfo[39m:    [Watcher] Watching filesystem to reload dev server on file change
+[0] [32minfo[39m:    redisUrl not found. A fake redis instance will be used.
+[0] - Creating server
+[0] [32minfo[39m:    redisUrl not found. A fake redis instance will be used.
+[0] [32minfo[39m:    Skipping instrumentation registration. No register function found.
+[0] [32minfo[39m:    redisUrl not found. A fake redis instance will be used.
+[0] [32minfo[39m:    No link to load from /Users/wskopek/Documents/Github projekty/GlowUp-Nutrition-shop/my-medusa-store/node_modules/@medusajs/draft-order/.medusa/server/src/links. skipped.
+[0] [33mwarn[39m:    Local Event Bus installed. This is not recommended for production.
+[0] [32minfo[39m:    Locking module: Using "in-memory" as default.
+[0] [32minfo[39m:    No workflow to load from /Users/wskopek/Documents/Github projekty/GlowUp-Nutrition-shop/my-medusa-store/node_modules/@medusajs/draft-order/.medusa/server/src/workflows. skipped.
+[0] [32minfo[39m:    No subscriber to load from /Users/wskopek/Documents/Github projekty/GlowUp-Nutrition-shop/my-medusa-store/node_modules/@medusajs/draft-order/.medusa/server/src/subscribers. skipped.
+[0] [32minfo[39m:    No job to load from /Users/wskopek/Documents/Github projekty/GlowUp-Nutrition-shop/node_modules/.pnpm/@medusajs+medusa@2.13.1_@medusajs+admin-sdk@2.13.1_@medusajs+cli@2.13.1_@types+node@20._24856f6ef81006b75e3a24bd367a4f12/node_modules/@medusajs/medusa/dist/jobs. skipped.
+[0] [32minfo[39m:    No job to load from /Users/wskopek/Documents/Github projekty/GlowUp-Nutrition-shop/my-medusa-store/node_modules/@medusajs/draft-order/.medusa/server/src/jobs. skipped.
+[0] ✔ Server is ready on port: 9000 – 2810ms
+[0] [32minfo[39m:    Admin URL → http://localhost:9000/app
+[0] [32mhttp[39m:    POST /auth/user/emailpass ← - (200) - 105.278 ms
+[0] [32mhttp[39m:    GET /admin/sales-channels ← - (200) - 8.486 ms
+[0] [32minfo[39m:    Product with handle: glowup-whey-protein-chocolate, already exists.
+[0] [32mhttp[39m:    POST /admin/products ← - (400) - 42.317 ms
+[0] [32minfo[39m:    Gracefully shutting down server
+[0] /Users/wskopek/Documents/Github projekty/GlowUp-Nutrition-shop/my-medusa-store:
+[0]  ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  my-medusa-store@0.0.1 dev: `medusa develop`
+[0] Command failed with signal "SIGTERM"
+[0] pnpm --filter my-medusa-store dev exited with code SIGTERM
+ ELIFECYCLE  Command failed with exit code 1.

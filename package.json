@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "dev": "concurrently \"pnpm --filter my-medusa-store dev\" \"pnpm --filter medusa-next dev\"",
+    "dev:backend": "pnpm --filter my-medusa-store dev",
+    "dev:storefront": "pnpm --filter medusa-next dev"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "pnpm": "^10.29.3",
+    "supabase": "^2.76.8"
+  }
+}
