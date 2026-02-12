@@ -23,6 +23,9 @@ importers:
       '@medusajs/admin-sdk':
         specifier: 2.13.1
         version: 2.13.1
+      '@medusajs/admin-shared':
+        specifier: 2.13.1
+        version: 2.13.1
       '@medusajs/cli':
         specifier: 2.13.1
         version: 2.13.1(@types/node@20.19.33)
@@ -35,12 +38,24 @@ importers:
       '@medusajs/framework':
         specifier: 2.13.1
         version: 2.13.1(@medusajs/cli@2.13.1(@types/node@20.19.33))(@types/node@20.19.33)(ioredis@5.9.2)(vite@5.4.21(@types/node@20.19.33)(terser@5.46.0))(zod@3.25.76)
+      '@medusajs/icons':
+        specifier: 2.13.1
+        version: 2.13.1(react@18.3.1)
       '@medusajs/medusa':
         specifier: 2.13.1
         version: 2.13.1(@medusajs/admin-sdk@2.13.1)(@medusajs/cli@2.13.1(@types/node@20.19.33))(@medusajs/framework@2.13.1(@medusajs/cli@2.13.1(@types/node@20.19.33))(@types/node@20.19.33)(ioredis@5.9.2)(vite@5.4.21(@types/node@20.19.33)(terser@5.46.0))(zod@3.25.76))(@medusajs/icons@2.13.1(react@18.3.1))(@medusajs/test-utils@2.13.1)(@medusajs/ui@4.1.1(@types/react-dom@18.3.7(@types/react@18.3.28))(@types/react@18.3.28)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3))(@swc/core@1.15.11(@swc/helpers@0.5.18))(@types/node@20.19.33)(@types/react-dom@18.3.7(@types/react@18.3.28))(@types/react@18.3.28)(awilix@8.0.1)(posthog-node@5.24.15)(react-dom@18.3.1(react@18.3.1))(react-router-dom@6.30.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(terser@5.46.0)(typescript@5.9.3)(yalc@1.0.0-pre.53)
       '@medusajs/payment-stripe':
         specifier: ^2.13.1
         version: 2.13.1(@medusajs/framework@2.13.1(@medusajs/cli@2.13.1(@types/node@20.19.33))(@types/node@20.19.33)(ioredis@5.9.2)(vite@5.4.21(@types/node@20.19.33)(terser@5.46.0))(zod@3.25.76))
+      '@medusajs/types':
+        specifier: 2.13.1
+        version: 2.13.1(ioredis@5.9.2)(vite@5.4.21(@types/node@20.19.33)(terser@5.46.0))
+      '@medusajs/ui':
+        specifier: 4.1.1
+        version: 4.1.1(@types/react-dom@18.3.7(@types/react@18.3.28))(@types/react@18.3.28)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.9.3)
+      '@medusajs/utils':
+        specifier: 2.13.1
+        version: 2.13.1(@types/node@20.19.33)(express@4.22.1)
     devDependencies:
       '@medusajs/test-utils':
         specifier: 2.13.1
